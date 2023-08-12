@@ -1,0 +1,63 @@
+<configuration>
+    <!-- 控制台输出日志 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%highlight(%date{yyyy-MM-dd HH:mm:ss.SSS})] [%highlight(%level)] [%logger{50}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Info级别日志 -->
+    <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>D:/星球项目/UserCenter/UserCenterLog/userCenter_info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>D:/Log/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%date{ISO8601}] [%level] [%logger{50}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Warn级别日志 -->
+    <appender name="WARN_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>D:/星球项目/UserCenter/UserCenterLog/userCenter_warn.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>D:/Log/warn.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%date{ISO8601}] [%level] [%logger{50}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Error级别日志 -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>D:/星球项目/UserCenter/UserCenterLog/userCenter_error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>D:/Log/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>1Kb</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%date{ISO8601}] [%level] [%logger{50}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 根日志器 -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+
+        <!-- 设置不同级别的日志输出器 -->
+        <appender-ref ref="INFO_FILE" level="INFO" />
+        <appender-ref ref="WARN_FILE" level="WARN" />
+        <appender-ref ref="ERROR_FILE" level="ERROR" />
+    </root>
+</configuration>
