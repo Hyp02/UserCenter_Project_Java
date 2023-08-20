@@ -4,6 +4,7 @@ import com.hyp.usercenter.common.ErrorCode;
 
 /**
  * 定义业务异常类,添加自定义状态码和异常描述信息
+ * 定义多个异常构造方法，便于灵活的返回异常信息
  * @author Han
  * @data 2023/8/10
  * @apiNode

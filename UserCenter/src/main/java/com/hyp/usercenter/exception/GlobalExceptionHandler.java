@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @data 2023/8/11
  * @apiNode
  */
-// 集中异常处理，返回异常的json对象给前端
-@RestControllerAdvice
+
+@RestControllerAdvice // 集中异常处理，返回异常的json对象给前端
 @Slf4j
 public class GlobalExceptionHandler {
     /**

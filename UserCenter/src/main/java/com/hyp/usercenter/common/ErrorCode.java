@@ -4,6 +4,8 @@ import lombok.Data;
 import org.apache.ibatis.annotations.Param;
 
 /**
+ * 状态码 枚举类
+ * 为这个项目提供状态码
  * @author Han
  * @data 2023/8/10
  * @apiNode
